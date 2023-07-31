@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+<!-- Template for new notes -->
+<form action="/notes" method="POST">
+  <label>
+    <input type="text" name="title" placeholder="Header" class="new_note_header">
+  </label>
+  <br>
+  <label>
+    <input type="text" name="body" placeholder="Your interesting thoughts here" class="new_note_content">
+  </label>
+  <br>
+  <button type="submit">Save Note</button>
+</form>
+
+<!-- needs assignment -->
+<button type="submit">Delete</button>
+<%- include('../partials/footer') %>
