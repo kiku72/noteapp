@@ -4,8 +4,12 @@ const Schema = mongoose.Schema;
 const notesSchema = new Schema ({
     title: String,
     content: String,
+    createDate: String,
+    updateDate: String
 }, {
     timestamps: true
 })
+
+// const categoriesSchema = new Schema ()
 
 module.exports = mongoose.model('Note', notesSchema)

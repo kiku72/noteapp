@@ -1,16 +1,9 @@
 <%- include('../partials/header') %>
-
+<!-- Not currently in use, but for future non-editable notes -->
 <section class="note">
     <h1><%= note.title %></h1>
-    <p>Last edited on: <%= note.updatedAt %></p>
+    <p>This was last edited on <%= note.updatedAt %></p>
     <p><%= note.content %></p>
-    <p>Created on: <%= note.createdAt %></p>
-    <a href="/notes/<%=note._id%>/edit">Edit</a>
-    <form action="/notes/<%=note._id%>?_method=DELETE" method="POST">
-        <button type="submit">Delete</button>
-    </form>
+    <p>Note created at <%= note.createdAt %></p>
 </section>
-
-
-
 <%- include('../partials/footer') %>

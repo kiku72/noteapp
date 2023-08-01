@@ -5,16 +5,15 @@
 <div class="border">
     <% notes.forEach(function(note) { %>
         <!-- Entire 'box' can be clicked -->
-        <a href="/notes/<%=note._id%>">
+        <a href="/notes/<%=note._id%>/edit">
             <div class="notebox">
                 <p class="note_title"> <h3><%= note.title %></h3></p>
+                <p class="date_update">Last changes were made on <%= note.updateDate %></p>
+                <p class="note_content"><%= note.content %></p>
                 <form action="/notes/<%= note.id %>?_method=DELETE"
                     class="delete-form" method="POST">
                     <button type="submit">X</button>
                 </form>
-                <p class="date_update"><%= note.updatedAt %></p>
-                <p class="note_content"><%= note.content %></p>
-                <p class="date_create"><%= note.createdAt %></p>
                 <br>
             </div>
         </a>

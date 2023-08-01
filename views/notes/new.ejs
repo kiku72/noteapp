@@ -6,12 +6,15 @@
   </label>
   <br>
   <label>
-    <input type="text" name="body" placeholder="Your interesting thoughts here" class="new_note_content">
+    <input type="text" name="content" placeholder="Your interesting thoughts here" class="new_note_content">
   </label>
   <br>
   <button type="submit">Save Note</button>
 </form>
 
-<!-- needs assignment -->
-<button type="submit">Delete</button>
+<form action="/notes/?_method=GET">
+  <button type="submit">Delete</button>
+</form>
+
+
 <%- include('../partials/footer') %>

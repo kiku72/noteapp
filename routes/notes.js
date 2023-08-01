@@ -9,9 +9,9 @@ router.get('/new', notesController.new);
 
 router.post('/', notesController.create);
 
-// router.get('/:id/edit', notesController.edit);
+router.get('/:id/edit', notesController.edit);
 
-// router.put('/:id', notesController.update);
+router.put('/:id', notesController.update);
 
 router.delete('/:id', notesController.delete);
 
