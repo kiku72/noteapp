@@ -10,6 +10,9 @@ const notesSchema = new Schema ({
     timestamps: true
 })
 
-// const categoriesSchema = new Schema ()
+const categoriesSchema = new Schema ({
+    title: String,
+    
+})
 
 module.exports = mongoose.model('Note', notesSchema)
