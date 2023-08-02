@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
 <!-- Landing Page -->
@@ -11,6 +12,6 @@
 <% if (user) { %>
     <!-- redirect to dashboard -->
 <% } else { %>
-    <a href="/auth/google" class="login">Log in to get started! </a>
+    <a href="/auth/google" class="login"><img src="https://i.imgur.com/FHjYyi0.png"> Log in with Google to get started!</a>
 <% } %>
 <%- include('./partials/footer') %>

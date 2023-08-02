@@ -2,19 +2,20 @@ const express = require('express');
 const router = express.Router();
 
 const notesController = require('../controllers/notes')
+const ensureLoggedIn = require('../config/ensureLoggedIn');
 
-router.get('/', notesController.index)
+router.get('/', ensureLoggedIn, notesController.index)
 
-router.get('/new', notesController.new);
+router.get('/new', ensureLoggedIn, notesController.new);
 
-router.post('/', notesController.create);
+router.post('/', ensureLoggedIn, notesController.create);
 
-router.get('/:id/edit', notesController.edit);
+router.get('/:id/edit', ensureLoggedIn, notesController.edit);
 
-router.put('/:id', notesController.update);
+router.put('/:id', ensureLoggedIn, notesController.update);
 
-router.delete('/:id', notesController.delete);
+router.delete('/:id', ensureLoggedIn, notesController.delete);
 
-router.get('/:id', notesController.show)
+router.get('/:id', ensureLoggedIn, notesController.show)
 
 module.exports = router;

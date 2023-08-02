@@ -5,14 +5,20 @@ const notesSchema = new Schema ({
     title: String,
     content: String,
     createDate: String,
-    updateDate: String
+    updateDate: String,
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    userName: String,
+    userAvatar: String
 }, {
     timestamps: true
 })
 
-const categoriesSchema = new Schema ({
-    title: String,
-    
-})
+// const categoriesSchema = new Schema ({
+//     title: String,
+// })
 
 module.exports = mongoose.model('Note', notesSchema)
