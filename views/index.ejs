@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
 <!-- Landing Page -->
-
-<% if (user) { %>
-    <!-- redirect to dashboard -->
-<% } else { %>
-    <a href="/auth/google" class="login"><img src="https://i.imgur.com/FHjYyi0.png"> Log in with Google to get started!</a>
-<% } %>
+<section class="landing">
+    <h1 class="welcome"> Welcome! </h1>
+    <h2 class="intro-msg"> The perfect digital companion for capturing ideas on the go! </h2>
+    <% if (user) { %>
+        <!-- redirect to dashboard -->
+        <% } else { %>
+            <a href="/auth/google" class="login"><img src="https://i.imgur.com/FHjYyi0.png"> Log in with Google to get started!</a>
+            <% } %>
+</section>
 <%- include('./partials/footer') %>

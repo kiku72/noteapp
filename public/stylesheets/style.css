@@ -1,20 +1,145 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+:root {
+   --form-text: white;
 }
 
-a {
-  color: #00B7FF;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*______________________________Header______________________________*/
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+}
+
+nav .logout {
+  font-size: 20px;
+  margin-left: auto;
+}
+
+
+/*_______________________________Body_______________________________*/
+body {
+  min-height: 100vh;
+}
+
+.quote {
+  font-size: 15px;
+}
+
+.note-border {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: stretch;
+  flex-wrap: wrap;
+}
+
+.notebox:hover {
+  font-size: 1.1em;
+}
+
+.notebox {
+  transition: font-size 0.4s ease;
+  color: white;
+  border: solid 3px white;
+  position: relative;
+  /* background-color: lightsalmon; */
+  border-radius: 15px;
+  padding: 2em;
+  margin: 1vmax 2vmax;
+  margin-left: auto;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.date_update {
+  font-size: 13px;
+}
+
+.delete-container {
+  position: absolute;
+  top: 0px;
+  right: -2em;
+}
+
+.del-button {
+  background: transparent;
+}
+
+.del-button:hover {
+  background-color: transparent;
+}
+
+/*______________________________NoteForms______________________________*/
+.new {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+textarea {
+  width: 49rem;
+}
+
+input {
+  padding: 15px;
+  width: 49rem;
+  height: 4rem;
+}
+
+.notes_form button {
+  display: inline-block;
+  margin-right: 10px; 
+  font-size: 20px;
+  width: auto;
+  height: auto;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+
+/*_____________________________LandingPage_____________________________*/
+.landing {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro-msg {
+  margin-bottom: 10vmax;
+}
+.welcome {
+  font-size: 10em;
+}
+
+.landing img {
+  height: 3vmax;
+  width: auto;
+  margin-bottom: -0.5em;
 }
 
 .login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 34px;
+  font-size: 3vmin;
 }
 
-.login img {
-  height: 40px;
-  width: auto;
+
+/*_______________________________Footer_______________________________*/
+footer {
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+}
+
+footer a {
+  font-size: 10px;
 }

@@ -1,21 +1,32 @@
 <%- include('../partials/header') %>
 <!-- Dashboard/Home Page -->
-<h1>Dashboard</h1>
-
-<div class="border">
+<h1>Your Dashboard</h1>
+<p class="quote">Here's a quote from <%= quote.quoteAuthor %> to inspire you today!</p>
+<p class="quote">"<em><%= quote.quoteText %>"</em></p>
+<br>
+<div class="note-border">
     <% if (user) { %>
         <% notes.forEach(function(note) { %>
             <!-- Entire 'box' can be clicked -->
             <a href="/notes/<%=note._id%>/edit">
                 <div class="notebox">
+                    <div class="delete-container">
+                        <form action="/notes/<%= note.id %>?_method=DELETE"
+                            class="delete-form" method="POST">
+                            <button type="submit" class="del-button">
+                                <lord-icon
+                                    src="https://cdn.lordicon.com/nhfyhmlt.json"
+                                    trigger="hover"
+                                    colors="primary:#ffffff"
+                                    state="hover-3"
+                                    style="width:35px;height:35px">
+                                </lord-icon>
+                            </button>
+                        </form>
+                    </div>
                     <p class="note_title"> <h3><%= note.title %></h3></p>
-                    <p class="date_update">Last changes were made on <%= note.updateDate %></p>
+                    <p class="date_update">Last changes were made on <%= note.updateDate %></p><br>
                     <p class="note_content"><%= note.content %></p>
-                    <form action="/notes/<%= note.id %>?_method=DELETE"
-                        class="delete-form" method="POST">
-                        <button type="submit">X</button>
-                    </form>
-                    <br>
                 </div>
             </a>
             <% }); %>

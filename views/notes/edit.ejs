@@ -1,16 +1,28 @@
 <%- include('../partials/header') %>
 
-<section class="note">
+<section class="notes_form">
     <form action="/notes/<%=note._id%>?_method=PUT" method="POST" class="update-form">
-        <input type="text" name="title" value="<%=note.title%>"  placeholder="Header" class="new_note_header">
-        <p>This was last edited on <%= note.updateDate %></p>
-        <input type="text" name="content" value="<%=note.content%>" placeholder="Your interesting thoughts here" class="new_note_content">
         <p>Note created at <%= note.createDate %></p>
-        <button type="submit">Save Changes</button>
-    </form>
-
+        <input type="text" name="title" value="<%=note.title%>"  placeholder="Header" class="new_note_header">
+        <textarea 
+        type="text" 
+        name="content" 
+        autocomplete="off" 
+        rows="10"
+        cols="10"
+        placeholder="Your interesting thoughts here..." 
+        wrap="soft">
+        <%=note.content%>
+    </textarea>
+    <p>This was last edited on <%= note.updateDate %></p>
+    <div class="button-container">
+        <button type="submit">Save Note</button>
+    </div>
+</form>
     <form action="/notes/<%=note._id%>?_method=DELETE" method="POST" class="delete-form">
-        <button type="submit">Delete</button>
+        <div class="button-container">
+            <button type="submit">Delete</button>
+        </div>
     </form>
 </section>
 

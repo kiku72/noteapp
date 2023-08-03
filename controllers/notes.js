@@ -1,15 +1,26 @@
 const Note = require('../models/note');
+const ROOT_URL = "http://api.forismatic.com/api/1.0"
 
 async function index(req, res) {
     try {
+        const quote = await fetch(`${ROOT_URL}/?method=getQuote&format=json&lang=en`)
+        .then(res => {
+            return res.json()
+        })
+        .catch(err => {
+            console.log(err);
+        })
         // Find the notes where 'user' is the logged-in user's id
         const notes = await Note.find({user: req.user._id});
-        res.render('notes/dashboard', {notes: notes});
+        console.log('AAAAAAAAAAAAAA where am i')
+        console.log(quote);
+        res.render('notes/dashboard', {notes: notes, quote});
     } catch (err) {
         console.log(err);
         res.send("Error while fetching notes");
     }
 }
+
 
 async function show(req,res) {
     userHasAccess(req,res,function() {
@@ -62,18 +73,20 @@ async function create(req,res) {
     }
 }
 
-async function edit (req, res) {
-    userHasAccess(req, res, function() {
-        Note.findOne({_id: req.params.id}, function(err, foundNote) {
-            if(err) {
-                console.log(err);
-                res.redirect('/notes');
-            } else {
-                res.render('notes/edit', {title: 'Edit Note', note: foundNote});
-            }
-        });
+
+async function edit(req, res) {
+    userHasAccess(req, res, async function() {
+      try {
+        const foundNote = await Note.findOne({ _id: req.params.id });
+        res.render('notes/edit', {title: 'Edit Note', note: foundNote});
+      } catch (err) {
+        console.log(err);
+        console.log('error');
+        res.redirect('/notes');
+      }
     });
-}
+  }
+  
 
 async function update (req, res) {
     try {
