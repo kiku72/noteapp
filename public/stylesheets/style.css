@@ -115,14 +115,23 @@ input {
   text-align: center;
 }
 
+#preview {
+  width: 100%;
+  height: auto;
+  border: solid darkgrey;
+  margin-top: 20px;
+}
+
 .intro-msg {
-  margin-bottom: 10vmax;
+  margin-top: -1vmax;
+  margin-bottom: 2vmax;
 }
 .welcome {
   font-size: 10em;
 }
 
-.landing img {
+.landing .login {
+  margin-top: 1em;
   height: 3vmax;
   width: auto;
   margin-bottom: -0.5em;
